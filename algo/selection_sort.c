@@ -10,19 +10,19 @@ void swap(int *ip, int *jp){
     *jp = temp;
 }
 
-void buble_sort(int arr[], int size){
-    for (int i = 0; i<size-1;i++){
-        int swapped = False;
-        for (int j = 0; j<size-i-1; j++){
-            if (arr[j] > arr[j+1]){
-                swapped = True;
-                swap(&arr[j], &arr[j+1]);
+void selection_sort(int arr[], int size){
+    int min_index;
+
+    for (int i = 0; i<size; i++){
+        min_index = i;
+        for (int j = i+1; j<size; j++) {
+            if (arr[j] < arr[min_index]) {
+                min_index = j;
             }
         }
-        if (swapped == False){
-            break;
-        }
+        swap(&arr[i], &arr[min_index]);
     }
+
 }
 
 int main()
@@ -32,18 +32,18 @@ int main()
     printf("Please enter size of array: \n");
     scanf("%d", &size);
     printf("Enter digits by spaces\n");
-    
+
     for (int i = 0; i<size; i++){
         scanf("%d", &arr[i]);
     }
 
-    buble_sort(arr, size);
+    selection_sort(arr, size);
 
     printf("\n");
     for (int i = 0; i<size;i++){
         printf("%d ", arr[i]);
     }
-
     printf("\n");
+
     return 0;
 }
