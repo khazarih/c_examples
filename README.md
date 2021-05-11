@@ -1,4 +1,4 @@
-# C basic code samples
+# C code samples
 
 ## Compile and Run
 ```
